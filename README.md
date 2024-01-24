@@ -23,9 +23,11 @@ docker run -p 6333:6333 qdrant/qdrant
 
 **4. Setup configuration variables in `.env` file**
 1. Rename `.env.example` file to `.env`.
-2. In the current version of `lexllm`, the only mandatory environment variable to specify is the `CHATNBX_KEY`.
-3. `OPENAI_API_KEY` is required only when you want to create embeddings using the OpenAI Embeddings API. Since, the embeddings for each video are already provided, this can be safely skipped.
-4. `QDRANT_CLOUD_KEY` and `QDRANT_DB_URL` are optional since we will be storing the embeddings in a local instance of Qdrant. I was facing some issues `(ERROR 403)` while creating a collection in Qdrant cloud DB.
+2. In the current version of `lexllm`, the only mandatory environment variable to specify is the `CHATNBX_KEY` and `OPENAI_API_KEY`.
+3. `CHATNBX_KEY` is used to invoke the ChatNBX API. This API is used to generate answers.
+4. `OPENAI_API_KEY` is used to invoke the OpenAI Embeddings API. This API is used to convert the query into an embedding that in turn is used to fetch relevant documents from Qdrant vectorDB.
+5. `QDRANT_CLOUD_KEY` and `QDRANT_DB_URL` are optional since we will be storing the embeddings in a local instance of Qdrant. I was facing some issues `(ERROR 403)` while creating a collection in Qdrant cloud DB.
+
 
 **5. Store embeddings in Qdrant DB**
 
