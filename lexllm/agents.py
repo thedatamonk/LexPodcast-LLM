@@ -114,6 +114,8 @@ Answer:
         
         answer = self.invoke_chatnbx_api(prompt, self.qa_model, QA_SYSTEM_PROMPT)
 
+        answer = answer.replace('. ', '.\n')
+
         return answer
     
     def get_video_title_from_query(self, query):
